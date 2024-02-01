@@ -1,0 +1,35 @@
+#Python Generators
+# A generator in Python is similar to a function except of returning a value and exiting a process, a generator will pause
+# the process, saving its state for next time.
+# The biggest difference between a function and generator from a code persperctive is one word:
+#  *return* is changed to *yield*
+
+#Exercise_1
+def prod(a,b):
+    # TODO change output to the product of a and b
+    output = 0
+    return output
+
+def fact_gen():
+    i = 1
+    n = i
+    while True:
+        output = prod(n, i)
+        yield output
+        # TODO: update i and n
+        # Hint: i is a successive integer and n is the previous product
+
+
+# Test block
+my_gen = fact_gen()
+num = 5
+for i in range(num):
+    print(next(my_gen))
+
+# Correct result when num = 5:
+# 1
+# 2
+# 6
+# 24
+# 120
+
