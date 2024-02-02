@@ -34,16 +34,13 @@ def check_sudoku(sudoku):
         col_check = list(range(len(sudoku)))
         for col_i in range(len(sudoku)):
             if not sudoku[col_i][i] in range(len(sudoku) + 1):
-                print("____ return false{}-{}".format(sudoku[col_i][i], range(len(sudoku)+1)))
                 return False
 
             if not sudoku[col_i][i] - 1 in col_check:
-                print("col_check return false")
                 return False
             col_check.remove(sudoku[col_i][i] - 1)
 
             if not col_i + 1 in row_check:
-                print("row_check return false")
                 return False
             row_check.remove(col_i + 1)
         i += 1
