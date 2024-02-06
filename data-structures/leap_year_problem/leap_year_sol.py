@@ -56,6 +56,31 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     # YOUR CODE HERE!
     return nb
 
+
+# MY SOLUTION
+def dateIsBefore(year1, month1, day1, year2, month2, day2):
+    if year1 < year2:
+        return True
+    elif year1 == year2:
+        if month1 < month2:
+            return True
+        elif month1 == month2:
+            return day2 > day1
+    return False
+
+# SOLUTION
+def daysBetweenDates(year1, month1, day1, year2, month2, day2):
+    """Returns the number of days between year1/month1/day1
+       and year2/month2/day2. Assumes inputs are valid dates
+       in Gregorian calendar, and the first date is not after
+       the second."""
+    nb = 0
+    while dateIsBefore(year1, month1, day1, year2, month2, day2):
+        (year1, month1, day1) = nextDay(year1, month1, day1)
+        nb +=1
+    # YOUR CODE HERE!
+    return nb
+
 def test():
     test_cases = [((2012,9,30,2012,10,30),30), 
                   ((2012,1,1,2013,1,1),360),
