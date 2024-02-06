@@ -37,7 +37,8 @@ def daysBetweenDates(y1, m1, d1,  y2, m2, d2):
                 start_day = d1
             if year == y2 and m == m2:
                 end_day = d2
-            total_days +=  end_day - start_day + 1
+            total_days +=  end_day - start_day
     print(total_days)
+    return total_days
 
-daysBetweenDates(2002, 2, 14, 2024, 2, 20)
+daysBetweenDates(2024, 2, 14, 2025, 2, 14)
