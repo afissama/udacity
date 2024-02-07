@@ -4,13 +4,22 @@
 # procedure. It will need to take into account leap years
 # in addition to the correct number of days in each month.
 
+def isLeapYear(year):
+    """Check if a year is a leap year or not"""
+    if year % 100 == 0 and year % 400 == 0:
+        return True
+    return year % 100 != 0 and year % 4 == 0
+
 def daysInMonth(year, month):
     """Return the number of days in a month"""
-    return 30
+    months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if isLeapYear(year):
+        months[1] = 29
+    return months[month-1]
 
 def nextDay(year, month, day):
     """Simple version: assume every month has 30 days"""
-    if day < 30:
+    if day < daysInMonth(year, month):
         return year, month, day + 1
     else:
         if month == 12:
